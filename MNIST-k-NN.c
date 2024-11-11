@@ -60,6 +60,7 @@ void read_mnist_labels(const char *filename, unsigned char **labels, int *num_la
     fclose(file);
 }
 
+<<<<<<< HEAD
 // Test görüntüsünü dosyadan okuma fonksiyonu
 void read_test_image(const char *filename, unsigned char *image) {
     FILE *file = fopen(filename, "rb");
@@ -73,6 +74,8 @@ void read_test_image(const char *filename, unsigned char *image) {
     fclose(file);
 }
 
+=======
+>>>>>>> 7315dc9349cb1f0a7058c8470eb1f3ac0ce0d3b6
 int main() {
     unsigned char *train_images;
     unsigned char *train_labels;
@@ -82,9 +85,15 @@ int main() {
     read_mnist_images("train-images-idx3-ubyte", &train_images, &num_train);
     read_mnist_labels("train-labels-idx1-ubyte", &train_labels, &num_train);
 
+<<<<<<< HEAD
     // Test etmek için bir görüntü oku
     unsigned char test_image[IMAGE_SIZE];
     read_test_image("test_image.bin", test_image); // test_image.bin, 28x28 boyutunda tek kanallı bir resim dosyasıdır
+=======
+    // Test etmek için bir görüntü oku (örneğin, ilk görüntü)
+    unsigned char test_image[IMAGE_SIZE];
+    memcpy(test_image, train_images, IMAGE_SIZE);
+>>>>>>> 7315dc9349cb1f0a7058c8470eb1f3ac0ce0d3b6
 
     // Tahmin yap
     int predicted_label = knn_predict(test_image, &train_images, train_labels, num_train);
